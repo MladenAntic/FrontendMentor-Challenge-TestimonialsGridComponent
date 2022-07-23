@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --moderate-violet: hsl(263, 55%, 52%);
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --very-dark-blackish-blue: hsl(219, 29%, 14%);
+  --white: hsl(0, 0%, 100%);
+
+  --light-gray: hsl(0, 0%, 81%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background-color: var(--light-grayish-blue);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin: 100px auto;
+  padding: 0 100px;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.card:first-child {
+  background-color: var(--moderate-violet);
+  grid-column: 1/3;
+  position: relative;
+}
+
+.card:first-child::after {
+  content: url("images/bg-pattern-quotation.svg");
+  position: absolute;
+  top: 10px;
+  right: 95px;
+  opacity: 0.5;
+}
+
+.card:nth-child(2) {
+  background-color: var(--very-dark-grayish-blue);
+}
+
+.card:nth-child(4) {
+  background-color: var(--very-dark-blackish-blue);
+  grid-column: 2/4;
+  grid-row: 2;
+}
+
+.card:nth-child(5) {
+  grid-column: 4;
+  grid-row: 1/3;
+}
+
+.card-header {
+  display: flex;
+  margin: 20px 20px 0;
+  align-items: center;
+}
+
+.card-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin-right: 20px;
+}
+
+.card-header h3 {
+  color: var(--white);
+}
+
+.card-header p {
+  color: var(--white);
+  opacity: 0.5;
+}
+
+.card p.lead,
+.card p.quote {
+  margin: 20px;
+}
+
+.card p.lead {
+  color: var(--white);
+  font-size: 23px;
+  font-weight: 600;
+}
+
+.card p.quote {
+  color: var(--white);
+  opacity: 0.7;
+}
+
+.card-bg-white {
+  background-color: var(--white);
+}
+
+.card-bg-white h3,
+.card-bg-white p,
+.card-bg-white p.lead,
+.card-bg-white p.quote {
+  color: var(--very-dark-blackish-blue);
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    width: 90%;
+    padding: 0;
+  }
+
+  .card:first-child {
+    grid-column: 1;
+  }
+
+  .card:first-child::after {
+    content: url("images/bg-pattern-quotation.svg");
+    top: 10px;
+    right: 20px;
+    opacity: 0.5;
+  }
+
+  .card:nth-child(4) {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .card:nth-child(5) {
+    grid-column: 1;
+    grid-row: 5;
+  }
+}
